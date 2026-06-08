@@ -4,19 +4,21 @@ const usePortfolioStore = create((set) => ({
   personalInfo: {
     name: "M. Kamran Hanif",
     role: "Frontend Developer",
-    greeting: "Building interactive and dynamic web experiences.",
-    bio: "Front-End Developer specializing in React-based web applications with a strong command of modern JavaScript and responsive design. BS IT student with demonstrated expertise in building interactive, user-centric interfaces using React, Vite, and contemporary web standards. Proficient in component architecture, DOM manipulation, state management, and CSS styling. Committed to writing clean, maintainable, and performant code while adhering to industry best practices. Strong problem-solving abilities with a passion for creating exceptional user experiences.",
+    roleExtended: "Aspiring MERN Stack Developer",
+    greeting: "Building interactive and dynamic full-stack web experiences.",
+    bio: "Front-End Developer specializing in React-based web applications with a strong command of modern JavaScript and responsive design, actively transitioning into full-stack MERN (MongoDB, Express.js, React, Node.js) development. BS IT student with demonstrated expertise in building interactive, user-centric interfaces using React, Vite, and contemporary web standards. Proficient in component architecture, DOM manipulation, state management, and CSS styling. Currently expanding backend capabilities with Node.js, Express.js, and MongoDB to deliver complete end-to-end solutions. Committed to writing clean, maintainable, and performant code while adhering to industry best practices. Strong problem-solving abilities with a passion for creating exceptional user experiences across the entire stack.",
     phone: "+92 3257062196",
     email: "mkamranhanif012@gmail.com",
     github: "https://github.com/mkamranhanif",
     linkedin: "https://linkedin.com/in/mkamranhanif",
   },
   skills: [
-    { category: "Languages", items: ["C++", "HTML", "CSS", "JavaScript", "Typescript"] },
-    { category: "Frontend", items: ["React.js", "Next.js", "Tailwind CSS", "Shadcn/ui"] },
-    { category: "Services / DBs", items: ["Node.js", "Supabase (PostgreSQL)", "RESTful APIs"] },
-    { category: "Tools / Services", items: ["Git/GitHub", "npm", "Vite", "Clerk", "Stripe", "Stitch"] },
-    { category: "Concepts", items: ["State Management (Zustand, Context API)", "DSA", "Asynchronous Programming"] }
+    { category: "Languages", items: ["JavaScript", "TypeScript", "C++", "HTML5", "CSS3"] },
+    { category: "Frontend", items: ["React.js", "Next.js", "Tailwind CSS", "Shadcn/ui", "Responsive Design", "Vite", "CSS Modules"] },
+    { category: "MERN Stack", items: ["MongoDB", "Express.js", "React.js", "Node.js"], description: "End-to-end JavaScript ecosystem for building scalable, production-ready web applications — from MongoDB databases to React interfaces." },
+    { category: "Backend & Databases", items: ["Node.js", "Express.js", "MongoDB", "Mongoose", "Supabase (PostgreSQL)", "RESTful APIs", "CRUD Operations"] },
+    { category: "Tools & DevOps", items: ["Git/GitHub", "npm", "Vite", "Postman", "Clerk", "Stripe", "Vercel", "Stitch", "ESLint"] },
+    { category: "Concepts", items: ["State Management (Zustand, Context API)", "DSA", "Async Programming", "MVC Architecture", "API Integration", "Auth & Authorization", "Component Architecture"] }
   ],
   projects: [
     {
