@@ -23,7 +23,7 @@ const usePortfolioStore = create((set) => ({
   projects: [
     {
       title: "Product Admin Dashboard",
-      year: "2024",
+      year: "2026",
       techStack: ["React", "Zustand", "TailwindCSS"],
       description: "Built a functional timer application with start, pause, and reset features. Improved understanding of DOM manipulation and JavaScript event handling.",
       link: "https://product-admin-dashboard-six.vercel.app/",
@@ -32,7 +32,7 @@ const usePortfolioStore = create((set) => ({
     },
     {
       title: "Voice Tutor",
-      year: "2024",
+      year: "2025",
       techStack: ["Next.js"],
       description: "Developed a comprehensive admin dashboard for product management with complex data visualization and filtering capabilities. Integrated REST APIs using Axios for real-time product data management, implemented Zustand for centralized state management, and built professional UI components using Shadcn/ui. Designed responsive grid layouts with Tailwind CSS that adapt seamlessly across different screen sizes with smooth animations and error handling.",
       link: "https://felloship-saa-s-project.vercel.app/",
@@ -41,7 +41,7 @@ const usePortfolioStore = create((set) => ({
     },
     {
       title: "Charge Guard",
-      year: "2023",
+      year: "2025",
       techStack: ["Kotlin", "Android"],
       description: "Built a Kotlin-based mobile app with AI-assisted development that monitors battery status and triggers an alarm at 100%. Collected requirements to define the scope and alert behavior. Used GitHub Actions to build the Android app from source.",
       link: "#",
@@ -50,7 +50,7 @@ const usePortfolioStore = create((set) => ({
     },
     {
       title: "Pomodoro Timer",
-      year: "2023",
+      year: "2026",
       techStack: ["HTML", "CSS", "JavaScript"],
       description: "Built a functional timer application with start, pause, and reset features. Improved understanding of DOM manipulation and JavaScript event handling.",
       link: "https://pomodoro-timer-ten-brown.vercel.app/",
@@ -59,7 +59,7 @@ const usePortfolioStore = create((set) => ({
     },
     {
       title: "JS Calculator",
-      year: "2023",
+      year: "2025",
       techStack: ["HTML", "CSS", "JavaScript"],
       description: "Developed a responsive calculator capable of performing basic arithmetic operations. Practiced JavaScript logic building and UI interaction handling.",
       link: "#",
@@ -77,7 +77,7 @@ const usePortfolioStore = create((set) => ({
     },
     {
       title: "Tic Tac Toe Game",
-      year: "2022",
+      year: "2024",
       techStack: ["C++"],
       description: "Built a console-based Tic Tac Toe game in C++ with a clean turn-based flow. Implemented win/draw detection using a 3x3 board representation and condition checks. Added input validation to prevent invalid moves and improve gameplay reliability.",
       link: "#",
