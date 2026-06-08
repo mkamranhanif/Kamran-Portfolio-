@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-fixed-dim": "#ffb2bf",
+                    "primary-fixed": "#7ffc97",
+                    "on-surface-variant": "#bdcaba",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed": "#002109",
+                    "secondary-container": "#404752",
+                    "surface-container-highest": "#353535",
+                    "error-container": "#93000a",
+                    "text-muted": "#9CA3AF",
+                    "on-secondary-fixed": "#151c25",
+                    "on-tertiary-fixed-variant": "#8a143c",
+                    "surface-pitch": "#0A0A0A",
+                    "on-error-container": "#ffdad6",
+                    "background": "#131313",
+                    "error": "#ffb4ab",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#afb5c2",
+                    "tertiary": "#ffb2bf",
+                    "primary-fixed-dim": "#62df7d",
+                    "surface-container-low": "#1b1b1b",
+                    "inverse-primary": "#006e2d",
+                    "surface-elevated": "#171717",
+                    "on-tertiary-fixed": "#3f0016",
+                    "on-secondary": "#2a313b",
+                    "terminal-green": "#16A34A",
+                    "tertiary-container": "#ec6284",
+                    "on-primary-fixed-variant": "#005320",
+                    "border-subtle": "#262626",
+                    "surface-bright": "#393939",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#404752",
+                    "inverse-on-surface": "#303030",
+                    "secondary-fixed-dim": "#c0c7d3",
+                    "secondary": "#c0c7d3",
+                    "on-primary-container": "#003111",
+                    "outline": "#879485",
+                    "primary": "#62df7d",
+                    "surface-container": "#1f1f1f",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-tint": "#62df7d",
+                    "tertiary-fixed": "#ffd9de",
+                    "secondary-fixed": "#dce3f0",
+                    "on-primary": "#003914",
+                    "primary-container": "#1ca64d",
+                    "on-tertiary-container": "#5a0022",
+                    "on-tertiary": "#660027",
+                    "surface-variant": "#353535",
+                    "surface": "#131313",
+                    "outline-variant": "#3e4a3d",
+                    "on-surface": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap": "120px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-base": ["Hanken Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "code-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #000000;
+        color: #e2e2e2;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .terminal-cursor::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        from, to { color: transparent; }
+        50% { color: #16A34A; }
+      }
+      .noise-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 50;
+      }
+      .scanline {
+        width: 100%;
+        height: 100px;
+        z-index: 49;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(22, 163, 74, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 100%;
+        animation: scanline 10s linear infinite;
+      }
+      @keyframes scanline {
+        0% { bottom: 100%; }
+        100% { bottom: -100px; }
+      }
+    </style>
+</head>
+<body class="font-body-base text-body-base overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div class="scanline"></div>
+<!-- Top Navigation Bar -->
+<nav class="bg-surface-pitch dark:bg-surface-pitch border-b border-subtle fixed full-width top-0 z-40 w-full">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-label-caps text-label-caps text-terminal-green tracking-widest uppercase">
+                SYS_PORTFOLIO <span class="terminal-cursor"></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-terminal-green transition-colors" href="#">Projects</a>
+<a class="font-label-caps text-label-caps text-terminal-green font-bold border-b-2 border-terminal-green pb-1" href="#">Skills</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-terminal-green transition-colors" href="#">Terminal</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-terminal-green transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-caps text-label-caps text-terminal-green border border-terminal-green px-4 py-2 hover:bg-terminal-green hover:text-surface-pitch transition-all duration-200 Active:opacity-80 scale-95 transition-transform">
+                    RESUME.SH
+                </button>
+<span class="material-symbols-outlined text-terminal-green cursor-pointer">terminal</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-gutter max-w-container-max mx-auto relative z-10">
+<!-- Section Header -->
+<header class="mb-20">
+<h1 class="font-display-lg text-display-lg uppercase mb-4 text-white">TECH_STACK.INI</h1>
+<p class="text-text-muted max-w-2xl font-body-base">
+                A comprehensive analysis of technical proficiencies across core development architectural layers. Current environment configured for full-stack excellence.
+            </p>
+</header>
+<!-- 3-Column Skills Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+<!-- Category: Frontend -->
+<div class="bg-surface-elevated border border-subtle p-8 hover:border-terminal-green transition-all duration-300 group">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-terminal-green" style="font-variation-settings: 'FILL' 1;">browser_updated</span>
+<h2 class="font-label-caps text-label-caps tracking-widest text-white">FRONTEND.CORE</h2>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">React / Next.js</span>
+<span class="font-code-sm text-code-sm text-terminal-green">95%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Tailwind / SCSS</span>
+<span class="font-code-sm text-code-sm text-terminal-green">98%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 98%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">TypeScript</span>
+<span class="font-code-sm text-code-sm text-terminal-green">90%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 90%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-subtle flex flex-wrap gap-2">
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">GSAP</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">FRAMER-MOTION</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">REDUX</span>
+</div>
+</div>
+<!-- Category: Backend -->
+<div class="bg-surface-elevated border border-subtle p-8 hover:border-terminal-green transition-all duration-300 group">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-terminal-green" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h2 class="font-label-caps text-label-caps tracking-widest text-white">BACKEND.SRV</h2>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Node.js / Express</span>
+<span class="font-code-sm text-code-sm text-terminal-green">92%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Python / Django</span>
+<span class="font-code-sm text-code-sm text-terminal-green">85%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">GraphQL / REST</span>
+<span class="font-code-sm text-code-sm text-terminal-green">96%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 96%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-subtle flex flex-wrap gap-2">
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">JWT</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">OAUTH2</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">SOCKET.IO</span>
+</div>
+</div>
+<!-- Category: DB & DevOps -->
+<div class="bg-surface-elevated border border-subtle p-8 hover:border-terminal-green transition-all duration-300 group">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-terminal-green" style="font-variation-settings: 'FILL' 1;">database</span>
+<h2 class="font-label-caps text-label-caps tracking-widest text-white">INFRA.SYSTEM</h2>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">PostgreSQL / MongoDB</span>
+<span class="font-code-sm text-code-sm text-terminal-green">88%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Docker / Kubernetes</span>
+<span class="font-code-sm text-code-sm text-terminal-green">82%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">AWS / CI/CD</span>
+<span class="font-code-sm text-code-sm text-terminal-green">85%</span>
+</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-terminal-green" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-subtle flex flex-wrap gap-2">
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">TERRAFORM</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">PRISMA</span>
+<span class="font-code-sm text-[10px] px-2 py-1 bg-surface-container-low text-text-muted border border-subtle">REDIS</span>
+</div>
+</div>
+</div>
+<!-- System Diagnostic Report (Terminal) -->
+<section class="mt-32">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-3 h-3 bg-terminal-green rounded-full animate-pulse"></div>
+<h3 class="font-label-caps text-label-caps text-white">SYSTEM_DIAGNOSTIC_REPORT</h3>
+</div>
+<div class="bg-surface-pitch border border-subtle p-6 rounded-lg font-code-sm text-code-sm h-64 overflow-y-auto" id="terminal-output">
+<p class="text-terminal-green mb-1">[INFO] Initializing diagnostic sequence...</p>
+<p class="text-text-muted mb-1">[LOAD] Fetching skill metadata from brain.v1.0.0</p>
+<p class="text-text-muted mb-1">[LOAD] Checking dependencies: Node, React, TypeScript...</p>
+<p class="text-terminal-green mb-1">[SUCCESS] All core modules verified.</p>
+<p class="text-text-muted mb-1">[SCAN] Searching for performance bottlenecks...</p>
+<p class="text-text-muted mb-1">[SCAN] No critical errors found in Frontend architecture.</p>
+<p class="text-text-muted mb-1">[SCAN] Memory management optimized in Backend services.</p>
+<p class="text-terminal-green mb-1">[INFO] Generating technical heat map...</p>
+<p class="text-white terminal-cursor">root@portfolio:~# </p>
+</div>
+</section>
+<!-- Decorative Tech Image (Asymmetric Placement) -->
+<div class="mt-section-gap grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="relative group">
+<div class="absolute inset-0 bg-terminal-green/5 blur-3xl rounded-full group-hover:bg-terminal-green/10 transition-all duration-500"></div>
+<img alt="Technical Detail" class="w-full h-80 object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 border border-subtle" data-alt="A macro close-up of high-tech server hardware components with neon green indicator lights glowing against dark matte carbon fiber surfaces. The lighting is low-key and dramatic, emphasizing the sharp, geometric lines of the circuit boards. The aesthetic is futuristic and industrial, using a palette of deep blacks and electric terminal-green. The image captures the essence of raw computing power and precision engineering in a high-performance datacenter environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBOuAkxuQimNki_mgSV4B7ZxbEH7FjP9Jg1nG4eBe3RuRqEkS15I0QFcme9czU2X_sxVJH6i89yGdJJXouYkUEZF0W8m9fXue_8wJATamNEb99xZ5_MyAQnB7VQ2dXHgFyTdVOk5uIjz7CjHMPHbT8in0N__1b72jp7jUliUDsxeKuIEXb9WUiT9noWcSJcHdxdLMXuOFxeAdaGSrhCL2He8H80D-cNvku6Zg15roLW6lwuaz7_V0Pz-4vHQWCT3PcOfwxpyxi99o"/>
+<div class="absolute bottom-4 left-4 font-code-sm text-[10px] bg-black/80 px-2 py-1 border border-terminal-green text-terminal-green">
+                    HW_SCAN_092.JPG
+                </div>
+</div>
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-white uppercase">The Methodology</h2>
+<p class="text-on-surface-variant font-body-base leading-relaxed">
+                    My approach to technology is rooted in architectural integrity and performance optimization. Each skill listed above is the result of thousands of hours in the terminal, building scalable solutions that bridge the gap between complex backend logic and seamless frontend interactions.
+                </p>
+<div class="flex gap-4">
+<button class="bg-terminal-green text-surface-pitch px-6 py-3 font-label-caps text-label-caps hover:brightness-110 transition-all">VIEW_PROJECTS</button>
+<button class="border border-subtle text-white px-6 py-3 font-label-caps text-label-caps hover:bg-surface-elevated transition-all">CONNECT_API</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-pitch dark:bg-surface-pitch border-t border-subtle mt-section-gap w-full">
+<div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-label-caps text-label-caps text-terminal-green mb-4 md:mb-0">
+                © 2024 BSIT_STUDENT. ROOT@PORTFOLIO:~#
+            </div>
+<div class="flex gap-8">
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Github</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Source</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for terminal logging simulation
+        const terminalOutput = document.getElementById('terminal-output');
+        const logs = [
+            "[INFO] Periodic maintenance complete.",
+            "[NET] Ping latency: 12ms",
+            "[DB] Connection pool stabilized.",
+            "[USER] Activity detected on Projects module.",
+            "[SYSTEM] Cooling fans running at 40% capacity.",
+            "[AUTH] Security handshake successful.",
+            "[CORE] Neural engine operational."
+        ];
+
+        function addLog() {
+            const lastLine = terminalOutput.querySelector('.terminal-cursor').parentElement;
+            const newLog = document.createElement('p');
+            newLog.className = 'text-text-muted mb-1 opacity-0 transition-opacity duration-500';
+            newLog.textContent = logs[Math.floor(Math.random() * logs.length)];
+            
+            terminalOutput.insertBefore(newLog, lastLine);
+            setTimeout(() => newLog.classList.remove('opacity-0'), 100);
+            
+            if (terminalOutput.children.length > 20) {
+                terminalOutput.removeChild(terminalOutput.firstChild);
+            }
+            
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        setInterval(addLog, 4000);
+    </script>
+</body></html>

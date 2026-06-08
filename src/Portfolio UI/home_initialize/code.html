@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IT_PORTFOLIO.V1 - SYSTEM_INITIALIZE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Hanken+Grotesk:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            overflow-x: hidden;
+        }
+
+        .terminal-grid {
+            background-image: 
+                linear-gradient(to right, #171717 1px, transparent 1px),
+                linear-gradient(to bottom, #171717 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(22, 163, 74, 0.1);
+            opacity: 0.75;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: 0%; }
+        }
+
+        .glitch-text:hover {
+            text-shadow: 2px 0 #16A34A, -2px 0 #ff003c;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-elevated": "#171717",
+                      "text-muted": "#9CA3AF",
+                      "on-secondary-fixed-variant": "#404752",
+                      "background": "#131313",
+                      "primary-fixed-dim": "#62df7d",
+                      "outline": "#879485",
+                      "on-tertiary-container": "#5a0022",
+                      "primary-container": "#1ca64d",
+                      "terminal-green": "#16A34A",
+                      "on-surface": "#e2e2e2",
+                      "secondary-fixed-dim": "#c0c7d3",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed": "#3f0016",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary": "#ffb2bf",
+                      "tertiary-fixed": "#ffd9de",
+                      "inverse-surface": "#e2e2e2",
+                      "on-surface-variant": "#bdcaba",
+                      "surface-tint": "#62df7d",
+                      "primary": "#62df7d",
+                      "surface-pitch": "#0A0A0A",
+                      "border-subtle": "#262626",
+                      "surface-bright": "#393939",
+                      "secondary": "#c0c7d3",
+                      "secondary-container": "#404752",
+                      "on-secondary-fixed": "#151c25",
+                      "surface-container": "#1f1f1f",
+                      "tertiary-fixed-dim": "#ffb2bf",
+                      "on-secondary-container": "#afb5c2",
+                      "inverse-primary": "#006e2d",
+                      "surface": "#131313",
+                      "tertiary-container": "#ec6284",
+                      "on-primary-fixed": "#002109",
+                      "on-tertiary-fixed-variant": "#8a143c",
+                      "on-primary-container": "#003111",
+                      "surface-container-low": "#1b1b1b",
+                      "on-tertiary": "#660027",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#dce3f0",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary": "#003914",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#3e4a3d",
+                      "on-primary-fixed-variant": "#005320",
+                      "on-background": "#e2e2e2",
+                      "surface-variant": "#353535",
+                      "surface-dim": "#131313",
+                      "inverse-on-surface": "#303030",
+                      "surface-container-highest": "#353535",
+                      "error-container": "#93000a",
+                      "on-secondary": "#2a313b",
+                      "primary-fixed": "#7ffc97"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-base": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Space Grotesk"],
+                      "display-lg": ["Space Grotesk"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-md": ["Space Grotesk"],
+                      "code-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-pitch font-body-base text-on-surface overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-surface-pitch dark:bg-surface-pitch border-b border-border-subtle dark:border-border-subtle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-terminal-green dark:text-primary" data-icon="terminal">terminal</span>
+<span class="font-label-caps text-label-caps tracking-widest text-terminal-green dark:text-primary">IT_PORTFOLIO.V1</span>
+</div>
+<nav class="hidden md:flex gap-gutter">
+<a class="font-label-caps text-label-caps text-terminal-green dark:text-primary border-b border-terminal-green hover:text-on-surface transition-colors" href="#">HOME</a>
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface transition-colors" href="#">ABOUT</a>
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface transition-colors" href="#">CODE</a>
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface transition-colors" href="#">SKILLS</a>
+</nav>
+<button class="flex items-center text-terminal-green dark:text-primary transition-all active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Hero Content -->
+<main class="relative h-screen w-full flex flex-col items-center justify-center terminal-grid px-margin-mobile overflow-hidden">
+<div class="scanline"></div>
+<!-- Background Glow -->
+<div class="absolute inset-0 bg-radial-gradient from-terminal-green/5 to-transparent pointer-events-none"></div>
+<!-- Terminal Output Area -->
+<div class="z-10 text-center max-w-4xl w-full">
+<div class="mb-4 flex items-center justify-center gap-2">
+<span class="h-2 w-2 rounded-full bg-terminal-green animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-terminal-green/60 tracking-widest uppercase">Kernel Version 5.15.0-BSIT</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight tracking-tighter text-on-surface">
+                SYSTEM_INITIALIZE: <br class="md:hidden"/>
+<span class="text-terminal-green font-code-sm block mt-2 md:inline md:mt-0 font-bold glitch-text transition-all cursor-default">
+                    [ALEX_RIVERA]
+                </span>
+</h1>
+<div class="mb-12 space-y-2">
+<p class="font-body-base text-body-base text-text-muted max-w-2xl mx-auto">
+                    BSIT Specialist | Full-Stack Explorer | Cybersecurity Enthusiast
+                </p>
+<div class="flex justify-center gap-4 text-terminal-green/40">
+<span class="font-code-sm text-code-sm">&gt;&gt; LOAD_PROFILE: OK</span>
+<span class="font-code-sm text-code-sm">&gt;&gt; STATUS: ONLINE</span>
+</div>
+</div>
+<!-- Execute CTA -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-terminal-green/20 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+<button class="relative bg-terminal-green text-surface-pitch px-12 py-4 font-label-caps text-label-caps tracking-[0.2em] border border-terminal-green transition-all hover:bg-transparent hover:text-terminal-green active:scale-95 group flex items-center gap-4 mx-auto" onclick="startSequence()">
+                    EXECUTE_ENVIRONMENT
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute bottom-32 left-margin-mobile hidden md:block border-l-2 border-terminal-green/20 pl-4 py-2">
+<p class="font-code-sm text-code-sm text-terminal-green/30 italic">Locating assets...</p>
+<p class="font-code-sm text-code-sm text-terminal-green/30 italic">Initializing UI components...</p>
+</div>
+<div class="absolute top-1/2 right- gutter -translate-y-1/2 hidden lg:flex flex-col gap-8 items-end opacity-20 hover:opacity-100 transition-opacity">
+<div class="text-right">
+<span class="block font-label-caps text-[10px] text-text-muted">LATENCY</span>
+<span class="font-code-sm text-terminal-green">14ms</span>
+</div>
+<div class="text-right">
+<span class="block font-label-caps text-[10px] text-text-muted">MEMORY_USAGE</span>
+<span class="font-code-sm text-terminal-green">42%</span>
+</div>
+<div class="text-right">
+<span class="block font-label-caps text-[10px] text-text-muted">UPTIME</span>
+<span class="font-code-sm text-terminal-green">99.9%</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile pb-4 pt-2 md:hidden bg-surface-pitch/90 dark:bg-surface-pitch/90 border-t border-border-subtle dark:border-border-subtle backdrop-blur-md">
+<a class="flex flex-col items-center justify-center text-terminal-green dark:text-primary border-t-2 border-terminal-green pt-2 scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-[10px]">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-[10px]">ABOUT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-label-caps text-[10px]">CODE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+<span class="font-label-caps text-[10px]">SKILLS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+<span class="font-label-caps text-[10px]">MAIL</span>
+</a>
+</nav>
+<!-- Scripts for micro-interactions -->
+<script>
+        function startSequence() {
+            const btn = document.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = `LOADING_MODULES... <span class="animate-spin material-symbols-outlined" data-icon="sync">sync</span>`;
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                btn.innerHTML = `ACCESS_GRANTED`;
+                btn.classList.add('bg-on-surface', 'text-surface-pitch');
+                
+                // Add a screen flash effect
+                const flash = document.createElement('div');
+                flash.className = 'fixed inset-0 bg-terminal-green/20 z-[100] pointer-events-none transition-opacity duration-500';
+                document.body.appendChild(flash);
+                
+                setTimeout(() => {
+                    flash.style.opacity = '0';
+                    setTimeout(() => flash.remove(), 500);
+                }, 100);
+
+            }, 800);
+        }
+
+        // Add random flickering to status messages
+        const statuses = document.querySelectorAll('.font-code-sm.text-terminal-green\\/40');
+        setInterval(() => {
+            const randomIdx = Math.floor(Math.random() * statuses.length);
+            statuses[randomIdx].style.opacity = '0.2';
+            setTimeout(() => {
+                statuses[randomIdx].style.opacity = '1';
+            }, 50);
+        }, 3000);
+    </script>
+</body></html>

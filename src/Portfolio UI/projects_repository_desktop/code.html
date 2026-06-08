@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0A0A0A;
+            color: #e2e2e2;
+        }
+        .terminal-glow {
+            box-shadow: 0 0 15px rgba(22, 163, 74, 0.1);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(22, 163, 74, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed-dim": "#ffb2bf",
+                      "primary-fixed": "#7ffc97",
+                      "on-surface-variant": "#bdcaba",
+                      "surface-dim": "#131313",
+                      "on-primary-fixed": "#002109",
+                      "secondary-container": "#404752",
+                      "surface-container-highest": "#353535",
+                      "error-container": "#93000a",
+                      "text-muted": "#9CA3AF",
+                      "on-secondary-fixed": "#151c25",
+                      "on-tertiary-fixed-variant": "#8a143c",
+                      "surface-pitch": "#0A0A0A",
+                      "on-error-container": "#ffdad6",
+                      "background": "#131313",
+                      "error": "#ffb4ab",
+                      "on-background": "#e2e2e2",
+                      "on-secondary-container": "#afb5c2",
+                      "tertiary": "#ffb2bf",
+                      "primary-fixed-dim": "#62df7d",
+                      "surface-container-low": "#1b1b1b",
+                      "inverse-primary": "#006e2d",
+                      "surface-elevated": "#171717",
+                      "on-tertiary-fixed": "#3f0016",
+                      "on-secondary": "#2a313b",
+                      "terminal-green": "#16A34A",
+                      "tertiary-container": "#ec6284",
+                      "on-primary-fixed-variant": "#005320",
+                      "border-subtle": "#262626",
+                      "surface-bright": "#393939",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#404752",
+                      "inverse-on-surface": "#303030",
+                      "secondary-fixed-dim": "#c0c7d3",
+                      "secondary": "#c0c7d3",
+                      "on-primary-container": "#003111",
+                      "outline": "#879485",
+                      "primary": "#62df7d",
+                      "surface-container": "#1f1f1f",
+                      "inverse-surface": "#e2e2e2",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-tint": "#62df7d",
+                      "tertiary-fixed": "#ffd9de",
+                      "secondary-fixed": "#dce3f0",
+                      "on-primary": "#003914",
+                      "primary-container": "#1ca64d",
+                      "on-tertiary-container": "#5a0022",
+                      "on-tertiary": "#660027",
+                      "surface-variant": "#353535",
+                      "surface": "#131313",
+                      "outline-variant": "#3e4a3d",
+                      "on-surface": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "section-gap": "120px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-caps": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"],
+                      "body-base": ["Hanken Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "display-lg-mobile": ["Space Grotesk"],
+                      "code-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body-base text-on-surface selection:bg-terminal-green selection:text-on-primary">
+<!-- Top Navigation -->
+<header class="bg-surface-pitch sticky top-0 z-50 border-b border-subtle">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-label-caps text-label-caps text-terminal-green tracking-widest">SYS_PORTFOLIO</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-terminal-green font-bold border-b-2 border-terminal-green pb-1 font-label-caps text-label-caps" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Terminal</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">About</a>
+</div>
+<div class="flex items-center gap-base">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="bg-terminal-green text-on-primary font-label-caps text-label-caps px-4 py-2 hover:opacity-80 active:scale-95 transition-all">
+                    RESUME.SH
+                </button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-section-gap">
+<!-- Breadcrumbs / Header Meta -->
+<div class="mb-gutter flex items-center gap-base font-code-sm text-code-sm text-terminal-green opacity-70">
+<span>~/root/repositories</span>
+<span class="text-on-surface-variant">/</span>
+<span class="text-on-surface">active_projects</span>
+</div>
+<section class="flex flex-col md:flex-row justify-between items-end gap-base mb-12">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-4">Core Repositories</h1>
+<p class="text-on-surface-variant max-w-lg">
+                    A curated selection of low-level engines, decentralized ledgers, and neural architectures. Synchronized with internal dev environment.
+                </p>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant flex gap-gutter">
+<div class="flex flex-col">
+<span class="text-terminal-green">4</span>
+<span>PROJECTS</span>
+</div>
+<div class="flex flex-col">
+<span class="text-terminal-green">100%</span>
+<span>STABLE</span>
+</div>
+</div>
+</section>
+<!-- Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1: Neural_Synthesizer.py -->
+<div class="group relative bg-surface-pitch border border-subtle p-gutter hover:border-terminal-green transition-all duration-300 overflow-hidden">
+<div class="scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="p-3 bg-surface-container border border-subtle group-hover:border-terminal-green/30 transition-colors">
+<span class="material-symbols-outlined text-terminal-green" data-icon="neurology">neurology</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant opacity-60">
+                        COM_01: 2024.11.12
+                    </div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Neural_Synthesizer.py</h3>
+<p class="text-on-surface-variant text-body-base mb-8 line-clamp-2">
+                    Real-time audio synthesis engine powered by recurrent neural networks. Low-latency tensor processing for generative soundscapes.
+                </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">Python</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">PyTorch</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">DSP</span>
+</div>
+<div class="flex justify-between items-center pt-gutter border-t border-subtle/50">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="fork_right">fork_right</span>
+</div>
+<button class="font-label-caps text-label-caps flex items-center gap-base text-terminal-green group-hover:translate-x-1 transition-transform">
+                        VIEW_SRC <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Quantum_Vault.ts -->
+<div class="group relative bg-surface-pitch border border-subtle p-gutter hover:border-terminal-green transition-all duration-300 overflow-hidden">
+<div class="scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="p-3 bg-surface-container border border-subtle group-hover:border-terminal-green/30 transition-colors">
+<span class="material-symbols-outlined text-terminal-green" data-icon="lock">lock</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant opacity-60">
+                        COM_02: 2024.11.08
+                    </div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Quantum_Vault.ts</h3>
+<p class="text-on-surface-variant text-body-base mb-8 line-clamp-2">
+                    Zero-trust credential management system utilizing lattice-based cryptography for post-quantum security guarantees.
+                </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">TypeScript</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">WASM</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">Crypto</span>
+</div>
+<div class="flex justify-between items-center pt-gutter border-t border-subtle/50">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="database">database</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="history">history</span>
+</div>
+<button class="font-label-caps text-label-caps flex items-center gap-base text-terminal-green group-hover:translate-x-1 transition-transform">
+                        OPEN_SSH <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Hyper-Ledger.sql -->
+<div class="group relative bg-surface-pitch border border-subtle p-gutter hover:border-terminal-green transition-all duration-300 overflow-hidden">
+<div class="scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="p-3 bg-surface-container border border-subtle group-hover:border-terminal-green/30 transition-colors">
+<span class="material-symbols-outlined text-terminal-green" data-icon="hub">hub</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant opacity-60">
+                        COM_03: 2024.10.30
+                    </div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Hyper-Ledger.sql</h3>
+<p class="text-on-surface-variant text-body-base mb-8 line-clamp-2">
+                    Highly optimized relational schema for high-frequency financial transactions. Features automated sharding and audit-logging.
+                </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">Postgres</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">SQL</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">BigData</span>
+</div>
+<div class="flex justify-between items-center pt-gutter border-t border-subtle/50">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="monitoring">monitoring</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="schema">schema</span>
+</div>
+<button class="font-label-caps text-label-caps flex items-center gap-base text-terminal-green group-hover:translate-x-1 transition-transform">
+                        QUERY_DB <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Vulkan-Render-Core.cpp -->
+<div class="group relative bg-surface-pitch border border-subtle p-gutter hover:border-terminal-green transition-all duration-300 overflow-hidden">
+<div class="scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="p-3 bg-surface-container border border-subtle group-hover:border-terminal-green/30 transition-colors">
+<span class="material-symbols-outlined text-terminal-green" data-icon="token">token</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant opacity-60">
+                        COM_04: 2024.10.15
+                    </div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Vulkan-Render-Core.cpp</h3>
+<p class="text-on-surface-variant text-body-base mb-8 line-clamp-2">
+                    Cross-platform Vulkan rendering abstraction. Optimized for ray-tracing hardware and asynchronous compute pipelines.
+                </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">C++</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">Vulkan</span>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-surface-container text-text-muted border border-subtle uppercase">Graphics</span>
+</div>
+<div class="flex justify-between items-center pt-gutter border-t border-subtle/50">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="memory">memory</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-terminal-green cursor-pointer" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<button class="font-label-caps text-label-caps flex items-center gap-base text-terminal-green group-hover:translate-x-1 transition-transform">
+                        PULL_BIN <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- System Visualization Section -->
+<section class="mt-section-gap border border-subtle bg-surface-container-low p-gutter relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #16A34A 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-gutter items-center">
+<div class="flex-1">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Global Sync State</h2>
+<p class="text-on-surface-variant mb-8">Architecture overview and deployment telemetry. All repositories are synced with the main frame.</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-1">
+<span>Memory Efficiency</span>
+<span class="text-terminal-green">94%</span>
+</div>
+<div class="w-full h-1 bg-surface-container">
+<div class="h-full bg-terminal-green" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-1">
+<span>CI/CD Pipeline</span>
+<span class="text-terminal-green">Active</span>
+</div>
+<div class="w-full h-1 bg-surface-container">
+<div class="h-full bg-terminal-green" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full flex justify-center">
+<div class="relative w-full aspect-video border border-subtle bg-surface-pitch flex items-center justify-center overflow-hidden">
+<div class="p-8 font-code-sm text-code-sm text-terminal-green leading-relaxed">
+<div class="animate-pulse">_ BOOT_SEQUENCE: OK</div>
+<div class="opacity-80">_ LOADING_ASSETS: COMPLETED</div>
+<div class="opacity-60">_ ESTABLISHING_TUNNEL: ENCRYPTED</div>
+<div class="opacity-40">_ ROOT_ACCESS: GRANTED</div>
+<div class="mt-4 text-on-surface">system@portfolio:~$ <span class="animate-bounce">|</span></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-pitch to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-subtle mt-section-gap bg-surface-pitch">
+<div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-label-caps text-label-caps text-terminal-green">
+                © 2024 BSIT_STUDENT. ROOT@PORTFOLIO:~#
+            </div>
+<div class="flex gap-gutter items-center">
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Github</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Source</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for project cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.textShadow = '0 0 8px #16A34A';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.textShadow = 'none';
+                }
+            });
+        });
+
+        // Simple terminal typing effect simulation for the Viz section
+        const terminalText = [
+            "fetching repository metadata...",
+            "parsing quantum_vault.ts security layers...",
+            "vulkan render core initialized...",
+            "neural synthesizer training epoch 512/1024...",
+            "all systems nominal."
+        ];
+        // Logic could be expanded but keeping it lightweight as requested.
+    </script>
+</body></html>

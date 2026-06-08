@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-surface-container-lowest: #0e0e0e;
+  --color-tertiary-fixed-dim: #ffb2bf;
+  --color-primary-fixed: #7ffc97;
+  --color-on-surface-variant: #bdcaba;
+  --color-surface-dim: #131313;
+  --color-on-primary-fixed: #002109;
+  --color-secondary-container: #404752;
+  --color-surface-container-highest: #353535;
+  --color-error-container: #93000a;
+  --color-text-muted: #9CA3AF;
+  --color-on-secondary-fixed: #151c25;
+  --color-on-tertiary-fixed-variant: #8a143c;
+  --color-surface-pitch: #0A0A0A;
+  --color-on-error-container: #ffdad6;
+  --color-background: #131313;
+  --color-error: #ffb4ab;
+  --color-on-background: #e2e2e2;
+  --color-on-secondary-container: #afb5c2;
+  --color-tertiary: #ffb2bf;
+  --color-primary-fixed-dim: #62df7d;
+  --color-surface-container-low: #1b1b1b;
+  --color-inverse-primary: #006e2d;
+  --color-surface-elevated: #171717;
+  --color-on-tertiary-fixed: #3f0016;
+  --color-on-secondary: #2a313b;
+  --color-terminal-green: #16A34A;
+  --color-tertiary-container: #ec6284;
+  --color-on-primary-fixed-variant: #005320;
+  --color-border-subtle: #262626;
+  --color-surface-bright: #393939;
+  --color-on-error: #690005;
+  --color-on-secondary-fixed-variant: #404752;
+  --color-inverse-on-surface: #303030;
+  --color-secondary-fixed-dim: #c0c7d3;
+  --color-secondary: #c0c7d3;
+  --color-on-primary-container: #003111;
+  --color-outline: #879485;
+  --color-primary: #62df7d;
+  --color-surface-container: #1f1f1f;
+  --color-inverse-surface: #e2e2e2;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-tint: #62df7d;
+  --color-tertiary-fixed: #ffd9de;
+  --color-secondary-fixed: #dce3f0;
+  --color-on-primary: #003914;
+  --color-primary-container: #1ca64d;
+  --color-on-tertiary-container: #5a0022;
+  --color-on-tertiary: #660027;
+  --color-surface-variant: #353535;
+  --color-surface: #131313;
+  --color-outline-variant: #3e4a3d;
+  --color-on-surface: #e2e2e2;
+  --color-subtle: #262626;
+
+  /* Spacing */
+  --spacing-container-max: 1200px;
+  --spacing-base: 8px;
+  --spacing-gutter: 24px;
+  --spacing-section-gap: 120px;
+  --spacing-margin-mobile: 16px;
+
+  /* Border Radius */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* Font Families */
+  --font-label-caps: "JetBrains Mono", monospace;
+  --font-display-lg: "Space Grotesk", sans-serif;
+  --font-body-base: "Hanken Grotesk", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-display-lg-mobile: "Space Grotesk", sans-serif;
+  --font-code-sm: "JetBrains Mono", monospace;
+
+  /* Font Sizes */
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1.0;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 600;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.04em;
+  --text-display-lg--font-weight: 700;
+
+  --text-body-base: 16px;
+  --text-body-base--line-height: 1.6;
+  --text-body-base--letter-spacing: 0;
+  --text-body-base--font-weight: 400;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--letter-spacing: -0.02em;
+  --text-headline-md--font-weight: 600;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.1;
+  --text-display-lg-mobile--letter-spacing: -0.04em;
+  --text-display-lg-mobile--font-weight: 700;
+
+  --text-code-sm: 14px;
+  --text-code-sm--line-height: 1.5;
+  --text-code-sm--letter-spacing: 0;
+  --text-code-sm--font-weight: 400;
+}
+
+body {
+  background-color: #000000;
+  color: #e2e2e2;
+  overflow-x: hidden;
+}
+
+.grid-background {
+  background-image:
+    linear-gradient(to right, #131313 1px, transparent 1px),
+    linear-gradient(to bottom, #131313 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.terminal-glow {
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.15);
+}
+
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(22, 163, 74, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  z-index: 50;
+}
+
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.typewriter::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}

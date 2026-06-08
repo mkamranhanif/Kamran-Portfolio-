@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYS_PORTFOLIO | About</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Space+Grotesk:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: #16A34A;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .glitch-hover:hover {
+            text-shadow: 2px 0 #16A34A, -2px 0 #ec6284;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#ffb2bf",
+                        "primary-fixed": "#7ffc97",
+                        "on-surface-variant": "#bdcaba",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#002109",
+                        "secondary-container": "#404752",
+                        "surface-container-highest": "#353535",
+                        "error-container": "#93000a",
+                        "text-muted": "#9CA3AF",
+                        "on-secondary-fixed": "#151c25",
+                        "on-tertiary-fixed-variant": "#8a143c",
+                        "surface-pitch": "#0A0A0A",
+                        "on-error-container": "#ffdad6",
+                        "background": "#131313",
+                        "error": "#ffb4ab",
+                        "on-background": "#e2e2e2",
+                        "on-secondary-container": "#afb5c2",
+                        "tertiary": "#ffb2bf",
+                        "primary-fixed-dim": "#62df7d",
+                        "surface-container-low": "#1b1b1b",
+                        "inverse-primary": "#006e2d",
+                        "surface-elevated": "#171717",
+                        "on-tertiary-fixed": "#3f0016",
+                        "on-secondary": "#2a313b",
+                        "terminal-green": "#16A34A",
+                        "tertiary-container": "#ec6284",
+                        "on-primary-fixed-variant": "#005320",
+                        "border-subtle": "#262626",
+                        "surface-bright": "#393939",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#404752",
+                        "inverse-on-surface": "#303030",
+                        "secondary-fixed-dim": "#c0c7d3",
+                        "secondary": "#c0c7d3",
+                        "on-primary-container": "#003111",
+                        "outline": "#879485",
+                        "primary": "#62df7d",
+                        "surface-container": "#1f1f1f",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#62df7d",
+                        "tertiary-fixed": "#ffd9de",
+                        "secondary-fixed": "#dce3f0",
+                        "on-primary": "#003914",
+                        "primary-container": "#1ca64d",
+                        "on-tertiary-container": "#5a0022",
+                        "on-tertiary": "#660027",
+                        "surface-variant": "#353535",
+                        "surface": "#131313",
+                        "outline-variant": "#3e4a3d",
+                        "on-surface": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-base": ["Hanken Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "code-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface-pitch selection:bg-terminal-green selection:text-black">
+<!-- TopNavBar -->
+<nav class="bg-surface-pitch border-b border-subtle docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-label-caps text-label-caps text-terminal-green tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                SYS_PORTFOLIO
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Terminal</a>
+<a class="text-terminal-green font-bold border-b-2 border-terminal-green pb-1 font-label-caps text-label-caps" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-caps text-label-caps text-terminal-green border border-terminal-green px-4 py-2 hover:bg-terminal-green hover:text-black transition-all duration-200 Active: opacity-80 scale-95 transition-transform">
+                    RESUME.SH
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter pt-24 min-h-screen">
+<!-- Profile Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-section-gap items-start">
+<!-- Side A: High-fidelity Headshot -->
+<div class="md:col-span-5 sticky top-32">
+<div class="relative group">
+<div class="absolute -inset-1 bg-terminal-green opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-none"></div>
+<div class="relative bg-surface-container-lowest border border-subtle overflow-hidden aspect-[4/5]">
+<img alt="Professional Technical Headshot" class="w-full h-full object-cover grayscale brightness-75 contrast-125 group-hover:scale-105 transition-transform duration-700" data-alt="A high-fidelity black and white portrait of a young professional man with a sharp, focused expression. He is wearing a dark, textured technical jacket. The lighting is dramatic and low-key, with a strong rim light defining his silhouette against a pure black background. The overall aesthetic is minimalist, tech-oriented, and sophisticated, matching a professional developer portfolio with deep contrast and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWMlKdMPW9t_BpvrFaigXwgit7-4nDVxtZcuZsvvhzmwUPFGkwOiMXlGOXPVJpiVqKQqnHG22HsYz_O9dZIrQeN4a52EFMGg8-QCSW7T1Xz9x8I0sSQAQt0_vAopbybzu-QJKkFquSiCAusA5CP-A8ucKhuyaPUYojaysnjBY7KFuJFpppqa92YymGjOALjaM1OTanSXY5l1m_JSCIT0LB-s5kRn0BApDgO0H9_SxqgPlDY-3AT6ydDjbthysmBrCjz6OxvB9YuKI"/>
+<!-- Overlay metadata -->
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+<div class="font-code-sm text-code-sm text-terminal-green mb-1 flex items-center gap-2">
+<span class="w-2 h-2 bg-terminal-green rounded-full animate-pulse"></span>
+                                STATUS: ACTIVE_ARCHITECT
+                            </div>
+<div class="font-label-caps text-[10px] text-text-muted">
+                                LOC: 127.0.0.1 // SECURE_NODE
+                            </div>
+</div>
+</div>
+<!-- Decorative technical elements -->
+<div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-terminal-green/30"></div>
+<div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-terminal-green/30"></div>
+</div>
+</div>
+<!-- Side B: Bio & Information Architecture -->
+<div class="md:col-span-7 space-y-12">
+<!-- Headline -->
+<header>
+<div class="font-label-caps text-label-caps text-terminal-green mb-4">PROFILE.IDENTIFIER</div>
+<h1 class="font-display-lg text-display-lg uppercase mb-2">INFORMATION ARCHITECT</h1>
+<div class="h-1 w-24 bg-terminal-green"></div>
+</header>
+<!-- Bio -->
+<section class="space-y-6">
+<div class="font-code-sm text-code-sm text-terminal-green opacity-60">root@portfolio:~$ cat bio.txt</div>
+<p class="font-body-base text-body-base text-on-surface-variant leading-relaxed max-w-prose">
+                        Specializing in the intersection of <span class="text-on-surface font-bold">Systems Integration</span> and <span class="text-on-surface font-bold">User Centricity</span>. I build robust digital infrastructures that prioritize data integrity and seamless flow. My approach is rooted in the BSIT philosophy: technology serves as the conduit for human progress when architected with precision and foresight.
+                    </p>
+</section>
+<!-- Education -->
+<section class="space-y-6 border-l border-subtle pl-8 relative">
+<div class="absolute top-0 left-[-5px] w-[10px] h-[10px] bg-terminal-green"></div>
+<div class="font-label-caps text-label-caps text-terminal-green">ACADEMIC_FOUNDATION</div>
+<div class="group">
+<h3 class="font-headline-md text-headline-md mb-1 group-hover:text-terminal-green transition-colors">B.S. Information Technology</h3>
+<p class="font-body-base text-body-base text-text-muted">Specialization in Network &amp; Web Systems</p>
+<div class="flex gap-4 mt-4">
+<span class="bg-surface-container-high px-3 py-1 font-code-sm text-code-sm border border-subtle">GPA: 3.8/4.0</span>
+<span class="bg-surface-container-high px-3 py-1 font-code-sm text-code-sm border border-subtle">Class of 2024</span>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="space-y-6">
+<div class="font-label-caps text-label-caps text-terminal-green">VERIFIED_SKILLS</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Cert 1 -->
+<div class="bg-surface-container-lowest border border-subtle p-6 hover:border-terminal-green transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-terminal-green text-3xl">cloud</span>
+<span class="font-code-sm text-[10px] text-text-muted">ID: AWS-9921-X</span>
+</div>
+<h4 class="font-headline-md text-body-base font-bold mb-1">AWS Certified Developer</h4>
+<p class="font-code-sm text-code-sm text-text-muted">Associate Level - Cloud Solutions</p>
+</div>
+<!-- Cert 2 -->
+<div class="bg-surface-container-lowest border border-subtle p-6 hover:border-terminal-green transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-terminal-green text-3xl">architecture</span>
+<span class="font-code-sm text-[10px] text-text-muted">ID: GUX-4402-A</span>
+</div>
+<h4 class="font-headline-md text-body-base font-bold mb-1">Google UX Professional</h4>
+<p class="font-code-sm text-code-sm text-text-muted">End-to-end Design Systems</p>
+</div>
+</div>
+</section>
+<!-- Skills Terminal -->
+<section class="bg-surface-container-lowest border border-subtle rounded-lg overflow-hidden">
+<div class="bg-surface-container-high px-4 py-2 border-b border-subtle flex items-center justify-between">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-container/40"></div>
+<div class="w-3 h-3 rounded-full bg-terminal-green/40"></div>
+</div>
+<div class="font-code-sm text-[11px] text-text-muted">core_capabilities.sh</div>
+</div>
+<div class="p-6 font-code-sm text-code-sm space-y-4">
+<div class="flex items-center gap-4">
+<span class="text-text-muted w-32">INFRASTRUCTURE</span>
+<div class="flex-grow bg-surface-pitch h-1.5 border border-subtle">
+<div class="bg-terminal-green h-full" style="width: 90%"></div>
+</div>
+<span class="text-terminal-green">90%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-text-muted w-32">UX_ARCHITECTURE</span>
+<div class="flex-grow bg-surface-pitch h-1.5 border border-subtle">
+<div class="bg-terminal-green h-full" style="width: 85%"></div>
+</div>
+<span class="text-terminal-green">85%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-text-muted w-32">DATA_MODELING</span>
+<div class="flex-grow bg-surface-pitch h-1.5 border border-subtle">
+<div class="bg-terminal-green h-full" style="width: 78%"></div>
+</div>
+<span class="text-terminal-green">78%</span>
+</div>
+<div class="pt-4 flex items-center">
+<span class="text-terminal-green mr-2">root@system:~$</span>
+<span id="typed-text"></span>
+<span class="terminal-cursor"></span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-pitch border-t border-subtle mt-section-gap">
+<div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-label-caps text-label-caps text-terminal-green flex items-center gap-2">
+                © 2024 BSIT_STUDENT. ROOT@PORTFOLIO:~#
+            </div>
+<div class="flex gap-8">
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Github</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Source</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Typing effect for terminal
+        const textToType = "initializing_new_project...";
+        const typedTextElement = document.getElementById('typed-text');
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textToType.length) {
+                typedTextElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(() => {
+                    typedTextElement.textContent = "";
+                    charIndex = 0;
+                    type();
+                }, 3000);
+            }
+        }
+
+        window.onload = type;
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-md');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-md');
+            }
+        });
+    </script>
+</body></html>

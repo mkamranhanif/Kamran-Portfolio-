@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-fixed-dim": "#ffb2bf",
+                    "primary-fixed": "#7ffc97",
+                    "on-surface-variant": "#bdcaba",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed": "#002109",
+                    "secondary-container": "#404752",
+                    "surface-container-highest": "#353535",
+                    "error-container": "#93000a",
+                    "text-muted": "#9CA3AF",
+                    "on-secondary-fixed": "#151c25",
+                    "on-tertiary-fixed-variant": "#8a143c",
+                    "surface-pitch": "#0A0A0A",
+                    "on-error-container": "#ffdad6",
+                    "background": "#131313",
+                    "error": "#ffb4ab",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#afb5c2",
+                    "tertiary": "#ffb2bf",
+                    "primary-fixed-dim": "#62df7d",
+                    "surface-container-low": "#1b1b1b",
+                    "inverse-primary": "#006e2d",
+                    "surface-elevated": "#171717",
+                    "on-tertiary-fixed": "#3f0016",
+                    "on-secondary": "#2a313b",
+                    "terminal-green": "#16A34A",
+                    "tertiary-container": "#ec6284",
+                    "on-primary-fixed-variant": "#005320",
+                    "border-subtle": "#262626",
+                    "surface-bright": "#393939",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#404752",
+                    "inverse-on-surface": "#303030",
+                    "secondary-fixed-dim": "#c0c7d3",
+                    "secondary": "#c0c7d3",
+                    "on-primary-container": "#003111",
+                    "outline": "#879485",
+                    "primary": "#62df7d",
+                    "surface-container": "#1f1f1f",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-tint": "#62df7d",
+                    "tertiary-fixed": "#ffd9de",
+                    "secondary-fixed": "#dce3f0",
+                    "on-primary": "#003914",
+                    "primary-container": "#1ca64d",
+                    "on-tertiary-container": "#5a0022",
+                    "on-tertiary": "#660027",
+                    "surface-variant": "#353535",
+                    "surface": "#131313",
+                    "outline-variant": "#3e4a3d",
+                    "on-surface": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap": "120px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-base": ["Hanken Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "code-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            overflow-x: hidden;
+        }
+        .terminal-glow {
+            box-shadow: 0 0 20px rgba(22, 163, 74, 0.05);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(22, 163, 74, 0.03);
+            position: absolute;
+            animation: scan 8s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-base text-body-base selection:bg-terminal-green selection:text-surface-pitch">
+<!-- Top Navigation -->
+<header class="bg-surface-pitch border-b border-subtle docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-label-caps text-label-caps text-terminal-green tracking-widest">
+                SYS_PORTFOLIO
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-terminal-green transition-colors font-label-caps text-label-caps" href="#">Terminal</a>
+<a class="text-terminal-green font-bold border-b-2 border-terminal-green pb-1 font-label-caps text-label-caps" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-terminal-green hover:bg-surface-container-low transition-all duration-200 p-2">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="bg-terminal-green text-surface-pitch font-label-caps text-label-caps px-4 py-2 hover:opacity-80 active:scale-95 transition-all">
+                    RESUME.SH
+                </button>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen flex flex-col items-center justify-center py-section-gap px-gutter overflow-hidden">
+<!-- Background Atmospheric Element -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="scanline"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-terminal-green/10 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-[800px]">
+<!-- Terminal Header Meta -->
+<div class="flex justify-between items-end mb-base border-b border-subtle pb-4">
+<div class="space-y-1">
+<h1 class="font-display-lg text-display-lg leading-none tracking-tighter">ESTABLISH_SIGNAL</h1>
+<p class="font-code-sm text-code-sm text-text-muted">LOC_ID: 127.0.0.1 // STATUS: AWAITING_INPUT</p>
+</div>
+<div class="text-right hidden sm:block">
+<div class="font-code-sm text-code-sm text-terminal-green flex items-center justify-end gap-2">
+<span class="w-2 h-2 rounded-full bg-terminal-green animate-pulse"></span>
+                        AUTH_STATE: ENCRYPTED
+                    </div>
+<div class="font-code-sm text-code-sm text-text-muted mt-1">
+                        LATENCY: 14ms
+                    </div>
+</div>
+</div>
+<!-- Terminal Form -->
+<div class="bg-surface-pitch border border-subtle terminal-glow p-gutter md:p-12 relative">
+<!-- Decorative Corner Accents -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-terminal-green"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-terminal-green"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-terminal-green"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-terminal-green"></div>
+<form action="#" class="space-y-12">
+<!-- Field 01 -->
+<div class="group relative">
+<label class="block font-label-caps text-label-caps text-terminal-green mb-4" for="user_identifier">
+                            [01] USER_IDENTIFIER
+                        </label>
+<div class="flex items-center gap-4">
+<span class="font-code-sm text-code-sm text-text-muted">&gt;</span>
+<input class="w-full bg-transparent border-0 border-b border-subtle focus:border-terminal-green focus:ring-0 font-code-sm text-code-sm py-2 placeholder:text-surface-container-highest transition-all" id="user_identifier" placeholder="ENTER_NAME..." type="text"/>
+</div>
+</div>
+<!-- Field 02 -->
+<div class="group relative">
+<label class="block font-label-caps text-label-caps text-terminal-green mb-4" for="return_addr">
+                            [02] RETURN_ADDR
+                        </label>
+<div class="flex items-center gap-4">
+<span class="font-code-sm text-code-sm text-text-muted">&gt;</span>
+<input class="w-full bg-transparent border-0 border-b border-subtle focus:border-terminal-green focus:ring-0 font-code-sm text-code-sm py-2 placeholder:text-surface-container-highest transition-all" id="return_addr" placeholder="IDENTIFY_ENDPOINT..." type="email"/>
+</div>
+</div>
+<!-- Field 03 -->
+<div class="group relative">
+<label class="block font-label-caps text-label-caps text-terminal-green mb-4" for="payload_content">
+                            [03] PAYLOAD_CONTENT
+                        </label>
+<div class="flex gap-4">
+<span class="font-code-sm text-code-sm text-text-muted mt-2">&gt;</span>
+<textarea class="w-full bg-transparent border border-subtle focus:border-terminal-green focus:ring-0 font-code-sm text-code-sm p-4 placeholder:text-surface-container-highest transition-all resize-none" id="payload_content" placeholder="COMPILE_MESSAGE..." rows="4"></textarea>
+</div>
+</div>
+<!-- Execution Bar -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-base pt-8">
+<div class="flex items-center gap-4 font-code-sm text-code-sm text-text-muted">
+<span class="animate-pulse">_</span>
+                            SYSTEM_READY_FOR_TRANSFER
+                        </div>
+<button class="w-full md:w-auto bg-terminal-green text-surface-pitch font-label-caps text-label-caps px-12 py-4 hover:bg-primary transition-all flex items-center justify-center gap-3 active:scale-95" type="submit">
+                            EXECUTE_SIGNAL.EXE
+                            <span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Metadata Footer -->
+<div class="mt-base flex flex-wrap gap-x-8 gap-y-2 font-code-sm text-code-sm text-text-muted opacity-60">
+<span>BITRATE: 128kbps</span>
+<span>CIPHER: AES-256-GCM</span>
+<span>TLS_VER: 1.3</span>
+<span>SEQ_NUM: 0x4F2A</span>
+</div>
+</div>
+</main>
+<!-- Project Gallery Section (Minimalist Visual Support) -->
+<section class="max-w-container-max mx-auto px-gutter pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Digital Asset Card -->
+<div class="group bg-surface-pitch border border-subtle p-base hover:border-terminal-green transition-all duration-300">
+<div class="relative aspect-video overflow-hidden bg-surface-container-low mb-base">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A dark, high-tech server room with glowing green LED indicators and fiber optic cables neatly organized in racks. The atmosphere is cold, precise, and professional, reflecting a high-performance developer environment. The lighting is low-key, emphasizing the sharp contrasts of the terminal-green accent colors against deep black hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFkS6HGERpygg9VofHA4X_KsTGx4OjtjCijovCGiYe7izXdbBzTQ4mgDvsGlrkkvw7uZ6zCRcTbOnTG2UyJEAsFB8m0Zg6VYEMLpy2CEEtKXSInRunicAQyMKaAjK2rra9aFMkKC_DIDpDsb4gcHZhy1i6SaEBk9SfTSsLkuaLLIoEHg6j6rwwQUbTwPffhzAhUEPMySf97NzpAo-LfV-is5r9-5bQDE7szz9AENLrBrEVQqL2_GxQcwOU8l8P4obbnMJUIHpMM2Q"/>
+</div>
+<div class="px-2">
+<div class="font-label-caps text-label-caps text-terminal-green mb-1">ASSET_001</div>
+<div class="font-headline-md text-headline-md">NETWORK_INFRA</div>
+</div>
+</div>
+<!-- Digital Asset Card 2 -->
+<div class="group bg-surface-pitch border border-subtle p-base hover:border-terminal-green transition-all duration-300">
+<div class="relative aspect-video overflow-hidden bg-surface-container-low mb-base">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Macro photography of a high-resolution screen displaying complex lines of code in a terminal environment. The text is vibrant green against a void-black background, showing a clean 12-column grid structure. Soft bokeh lights in the background suggest a modern creative suite workspace, maintaining a minimalist and technical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0GVy8SWUU6L5WqKw44C3eHOs8E-_9LAsJCtgu5hgoQiWmr6KmjV1KcCR4HmpiN5EQC4EPTBFu2j4pTMWAd0wyVy_Fm_7yiJXZsAV2wfK2xpvrW-UefvL6Qk1lttjQqb0xu9ZVETcFPnOXOJsXNEH5pt0rkixJ3Mpy8jDQOI2rBBPG5C4KGAcxhuyb-yXjCGyE5BJNcqsiBURUS7ZTo9lVzqBbGYA_fPomMpkgFWb-kCpYlfOs6JZ0M62IYIXjGq8kvu2aGTLoJ_A"/>
+</div>
+<div class="px-2">
+<div class="font-label-caps text-label-caps text-terminal-green mb-1">ASSET_002</div>
+<div class="font-headline-md text-headline-md">CORE_LOGIC</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-pitch border-t border-subtle mt-section-gap">
+<div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-label-caps text-label-caps text-terminal-green">
+                © 2024 BSIT_STUDENT. ROOT@PORTFOLIO:~#
+            </div>
+<div class="flex gap-8">
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Github</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Source</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green hover:underline decoration-terminal-green transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for form inputs
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.previousElementSibling.classList.add('translate-x-2');
+                input.parentElement.previousElementSibling.style.transition = 'transform 0.2s ease';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.previousElementSibling.classList.remove('translate-x-2');
+            });
+        });
+
+        // Simple terminal typing effect simulation for placeholders
+        const placeholders = {
+            'user_identifier': 'ENTER_NAME...',
+            'return_addr': 'IDENTIFY_ENDPOINT...',
+            'payload_content': 'COMPILE_MESSAGE...'
+        };
+
+        // Execution button effect
+        const submitBtn = document.querySelector('button[type="submit"]');
+        submitBtn.addEventListener('mousedown', () => {
+            submitBtn.classList.add('opacity-80', 'scale-95');
+        });
+        submitBtn.addEventListener('mouseup', () => {
+            submitBtn.classList.remove('opacity-80', 'scale-95');
+        });
+    </script>
+</body></html>

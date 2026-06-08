@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile.log | BSIT_STUDENT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-elevated": "#171717",
+                    "text-muted": "#9CA3AF",
+                    "on-secondary-fixed-variant": "#404752",
+                    "background": "#131313",
+                    "primary-fixed-dim": "#62df7d",
+                    "outline": "#879485",
+                    "on-tertiary-container": "#5a0022",
+                    "primary-container": "#1ca64d",
+                    "terminal-green": "#16A34A",
+                    "on-surface": "#e2e2e2",
+                    "secondary-fixed-dim": "#c0c7d3",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#3f0016",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary": "#ffb2bf",
+                    "tertiary-fixed": "#ffd9de",
+                    "inverse-surface": "#e2e2e2",
+                    "on-surface-variant": "#bdcaba",
+                    "surface-tint": "#62df7d",
+                    "primary": "#62df7d",
+                    "surface-pitch": "#0A0A0A",
+                    "border-subtle": "#262626",
+                    "surface-bright": "#393939",
+                    "secondary": "#c0c7d3",
+                    "secondary-container": "#404752",
+                    "on-secondary-fixed": "#151c25",
+                    "surface-container": "#1f1f1f",
+                    "tertiary-fixed-dim": "#ffb2bf",
+                    "on-secondary-container": "#afb5c2",
+                    "inverse-primary": "#006e2d",
+                    "surface": "#131313",
+                    "tertiary-container": "#ec6284",
+                    "on-primary-fixed": "#002109",
+                    "on-tertiary-fixed-variant": "#8a143c",
+                    "on-primary-container": "#003111",
+                    "surface-container-low": "#1b1b1b",
+                    "on-tertiary": "#660027",
+                    "error": "#ffb4ab",
+                    "secondary-fixed": "#dce3f0",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary": "#003914",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#3e4a3d",
+                    "on-primary-fixed-variant": "#005320",
+                    "on-background": "#e2e2e2",
+                    "surface-variant": "#353535",
+                    "surface-dim": "#131313",
+                    "inverse-on-surface": "#303030",
+                    "surface-container-highest": "#353535",
+                    "error-container": "#93000a",
+                    "on-secondary": "#2a313b",
+                    "primary-fixed": "#7ffc97"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-base": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-md": ["Space Grotesk"],
+                    "code-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+        .profile-line {
+            background: linear-gradient(to bottom, #16A34A 0%, rgba(22, 163, 74, 0) 100%);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(22, 163, 74, 0.1);
+            position: absolute;
+            animation: scan 8s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-base selection:bg-terminal-green selection:text-surface-pitch">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-surface-pitch dark:bg-surface-pitch border-b border-border-subtle dark:border-border-subtle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-terminal-green dark:text-primary">terminal</span>
+<span class="font-label-caps text-label-caps tracking-widest text-terminal-green dark:text-primary">IT_PORTFOLIO.V1</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-elevated transition-colors" href="#">HOME</a>
+<a class="font-label-caps text-label-caps text-terminal-green dark:text-primary border-b border-terminal-green" href="#">ABOUT</a>
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-elevated transition-colors" href="#">CODE</a>
+<a class="font-label-caps text-label-caps text-text-muted dark:text-text-muted hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-elevated transition-colors" href="#">MAIL</a>
+</nav>
+<div class="material-symbols-outlined text-terminal-green dark:text-primary cursor-pointer">menu</div>
+</header>
+<main class="pt-[100px] pb-[120px] px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden">
+<!-- Hero Section: Async Profile Header -->
+<section class="flex flex-col md:flex-row gap-12 mb-section-gap relative">
+<div class="absolute top-0 left-0 scanline pointer-events-none"></div>
+<!-- Left: ID Card -->
+<div class="w-full md:w-1/3 flex flex-col gap-6">
+<div class="relative group">
+<div class="absolute -inset-1 bg-terminal-green opacity-10 group-hover:opacity-20 blur transition-all duration-500"></div>
+<img alt="Profile" class="w-full grayscale border border-border-subtle filter hover:grayscale-0 transition-all duration-500 rounded-sm aspect-square object-cover" data-alt="A cinematic, high-contrast black and white portrait of a young tech professional looking thoughtfully into the distance. The lighting is dramatic and moody, utilizing deep shadows and sharp highlights characteristic of a modern technical aesthetic. The background is a void-like deep black, with subtle green digital noise particles adding a futuristic, terminal-inspired texture to the overall composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRH34zPDcm2puR6wG4qqNphzq936mpNlsCzVTlJ8fjjfAxxIiH_k0LzRAybnCmgnJpnrRjWvkLxNscT0aLWnVBDgq4LI2obFVjwsaNhLGpCbirzPgVjl5hbDDYBoJoAJeLR2AtEy3ONM6l02-2Ead1sK2gaVrVcuTHRWc9fFjlfiC-vPT0qp0F8pgvWMY9fyBSQTm0nMlsZ0nvGv6h8iY82s7kKx51EMwUm5cj4Pk3EUYurqxtDRkKhtwz9PogL50OiVkkF6ggPs"/>
+<div class="absolute bottom-4 left-4 bg-surface-pitch/80 backdrop-blur px-3 py-1 border border-terminal-green">
+<p class="font-code-sm text-code-sm text-terminal-green">STATUS: ACTIVE</p>
+</div>
+</div>
+<div class="space-y-2">
+<h1 class="font-headline-md text-headline-md text-on-surface">SYS.USER [01]</h1>
+<p class="font-code-sm text-code-sm text-text-muted">LOC: MANILA_MNL // 14.5995° N</p>
+</div>
+</div>
+<!-- Right: Bio Log -->
+<div class="w-full md:w-2/3">
+<div class="flex items-center gap-2 mb-4">
+<span class="text-terminal-green font-code-sm text-code-sm">[LOG_INIT]</span>
+<div class="h-px flex-grow bg-border-subtle"></div>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 uppercase tracking-tighter">Information<br/><span class="text-terminal-green">Architect</span></h2>
+<div class="space-y-6 max-w-2xl">
+<p class="font-body-base text-body-base text-on-surface">
+                        Currently completing a <span class="text-terminal-green">Bachelor of Science in Information Technology</span>. My focus lies at the intersection of robust backend architecture and high-fidelity user interfaces. I view code not just as a set of instructions, but as a medium for solving complex human problems through systematic logic and architectural integrity.
+                    </p>
+<p class="font-body-base text-body-base text-text-muted italic">
+                        "I translate business requirements into scalable, compiled reality. Precision is my default setting."
+                    </p>
+<div class="flex flex-wrap gap-3 pt-4">
+<span class="px-3 py-1 border border-border-subtle font-label-caps text-label-caps text-text-muted hover:border-terminal-green hover:text-terminal-green transition-colors">FULL-STACK</span>
+<span class="px-3 py-1 border border-border-subtle font-label-caps text-label-caps text-text-muted hover:border-terminal-green hover:text-terminal-green transition-colors">UI/UX_DEV</span>
+<span class="px-3 py-1 border border-border-subtle font-label-caps text-label-caps text-text-muted hover:border-terminal-green hover:text-terminal-green transition-colors">CLOUD_INFRA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Certifications: Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-base md:gap-gutter mb-section-gap">
+<!-- Education Card -->
+<div class="md:col-span-2 bg-surface-pitch border border-border-subtle p-gutter relative overflow-hidden group hover:border-terminal-green/50 transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-terminal-green mb-6">01_EDUCATION</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Bachelor of Science in Information Technology</h3>
+<p class="font-body-base text-body-base text-text-muted mb-8">Specializing in Systems Architecture and Data Engineering.</p>
+<ul class="space-y-4 border-l border-border-subtle pl-6 ml-1">
+<li class="relative">
+<span class="absolute -left-[29px] top-2 w-2 h-2 bg-terminal-green rounded-full"></span>
+<p class="font-code-sm text-code-sm text-on-surface">Data Structures &amp; Algorithms</p>
+<p class="font-code-sm text-code-sm text-text-muted">Mastering computational complexity and efficient storage.</p>
+</li>
+<li class="relative">
+<span class="absolute -left-[29px] top-2 w-2 h-2 bg-border-subtle rounded-full"></span>
+<p class="font-code-sm text-code-sm text-on-surface">Web Systems &amp; Technologies</p>
+<p class="font-code-sm text-code-sm text-text-muted">Advanced modern web frameworks and reactive patterns.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- Certifications Card -->
+<div class="bg-surface-pitch border border-border-subtle p-gutter flex flex-col justify-between hover:border-terminal-green/50 transition-colors">
+<div>
+<p class="font-label-caps text-label-caps text-terminal-green mb-6">02_CERTS</p>
+<div class="space-y-8">
+<div class="group">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-terminal-green" data-weight="fill">verified</span>
+<p class="font-code-sm text-code-sm text-on-surface">AWS Certified Practitioner</p>
+</div>
+<p class="text-[11px] font-label-caps text-text-muted pl-9">ID: AMZN-2024-XP91</p>
+</div>
+<div class="group">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-terminal-green" data-weight="fill">verified</span>
+<p class="font-code-sm text-code-sm text-on-surface">Google UX Professional</p>
+</div>
+<p class="text-[11px] font-label-caps text-text-muted pl-9">ID: GGL-UX-88210</p>
+</div>
+</div>
+</div>
+<button class="mt-8 py-3 w-full border border-border-subtle font-label-caps text-label-caps text-text-muted hover:bg-terminal-green hover:text-surface-pitch hover:border-terminal-green transition-all uppercase">
+                    View Credentials
+                </button>
+</div>
+<!-- Experience Snippet -->
+<div class="md:col-span-3 bg-surface-pitch border border-border-subtle p- gutter flex flex-col md:flex-row items-center justify-between gap-8 hover:bg-surface-elevated transition-colors px-gutter py-8">
+<div class="flex flex-col gap-1">
+<p class="font-label-caps text-label-caps text-terminal-green">TECH_STACK</p>
+<p class="font-code-sm text-code-sm text-text-muted">A continuously expanding array of tools and environments.</p>
+</div>
+<div class="flex flex-wrap gap-4 justify-center">
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">REACT</span>
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">TYPESCRIPT</span>
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">POSTGRES</span>
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">DOCKER</span>
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">NODE_JS</span>
+<span class="font-code-sm text-code-sm text-on-surface opacity-50 hover:opacity-100 transition-opacity">GO</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-base px-gutter flex flex-col md:flex-row justify-between items-center gap-4 max-w-container-max mx-auto border-t border-border-subtle dark:border-border-subtle bg-surface-pitch dark:bg-surface-pitch">
+<div class="font-label-caps text-label-caps text-terminal-green">© 2024 BSIT_STUDENT.SYSTEM_RESERVED</div>
+<div class="flex gap-6">
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green transition-colors" href="#">GitHub</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green transition-colors" href="#">LinkedIn</a>
+<a class="font-code-sm text-code-sm text-text-muted hover:text-terminal-green transition-colors" href="#">Source</a>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile pb-4 pt-2 md:hidden bg-surface-pitch/90 dark:bg-surface-pitch/90 border-t border-border-subtle dark:border-border-subtle backdrop-blur-md">
+<div class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-[10px]">HOME</span>
+</div>
+<div class="flex flex-col items-center justify-center text-terminal-green dark:text-primary border-t-2 border-terminal-green pt-2 scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px]">ABOUT</span>
+</div>
+<div class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2">
+<span class="material-symbols-outlined">code</span>
+<span class="font-label-caps text-[10px]">CODE</span>
+</div>
+<div class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-[10px]">SKILLS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-text-muted dark:text-text-muted pt-2">
+<span class="material-symbols-outlined">alternate_email</span>
+<span class="font-label-caps text-[10px]">MAIL</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for hover effects on cards
+        document.querySelectorAll('.bg-surface-pitch').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple typing effect for technical elements
+        const labels = document.querySelectorAll('.font-code-sm');
+        labels.forEach(label => {
+            if(label.innerText.includes('[') || label.innerText.includes('//')) {
+                label.classList.add('opacity-0');
+                setTimeout(() => {
+                    label.classList.remove('opacity-0');
+                    label.classList.add('transition-opacity', 'duration-1000');
+                }, Math.random() * 2000);
+            }
+        });
+    </script>
+</body></html>
